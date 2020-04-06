@@ -30,6 +30,9 @@
 :VAR Output Total CO2e Emissions by Sector[LULUCF sector]|Land Use
 :LINE-WIDTH 2
 :LINE-COLOR 0-176-80
+:VAR Output Total CO2e Emissions by Sector[geoengineering sector]|Geoengineering
+:LINE-WIDTH 2
+:LINE-COLOR 173-102-0
 :VAR Output Industry Sector Excluding Ag and Waste CO2e Emissions|Industry
 :LINE-WIDTH 2
 :LINE-COLOR 150-150-150
@@ -60,6 +63,9 @@
 :VAR Output Total CO2e Emissions by Sector[LULUCF sector]|Land Use
 :LINE-WIDTH 2
 :LINE-COLOR 0-176-80
+:VAR Output Total CO2e Emissions by Sector[geoengineering sector]|Geoengineering
+:LINE-WIDTH 2
+:LINE-COLOR 173-102-0
 :VAR Output Energy Related CO2e Emissions|Energy
 :LINE-WIDTH 2
 :LINE-COLOR 192-27-0
@@ -145,6 +151,14 @@
 :NO-LEGEND 5
 :SCALE
 :VAR Output Total CO2e Emissions by Sector[district heat and hydrogen sector]
+:LINE-WIDTH 2
+
+
+:GRAPH Output_CO2e_per_Unit_GDP
+:TITLE CO2e per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Total CO2e Emissions per Unit GDP
 :LINE-WIDTH 2
 
 
@@ -306,6 +320,14 @@
 :LINE-COLOR 0-0-0
 :VAR Output Energy Related CO2 Emissions from Biomass Biofuels and MSW|Biomass Biofuels & MSW (net)
 :LINE-COLOR 0-176-80
+
+
+:GRAPH Output_Energy_Related_CO2_per_Unit_GDP
+:TITLE Energy-Related CO2 per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Energy Related CO2 per Unit GDP
+:LINE-WIDTH 2
 
 
 ##### Effects by Policy: CO2e Wedge Diagram #####
@@ -1696,6 +1718,14 @@
 :NO-LEGEND 5
 :SCALE
 :VAR Output Total Hydrogen Consumption
+:LINE-WIDTH 2
+
+
+:GRAPH Output_Primary_Energy_Use_per_Unit_GDP
+:TITLE Primary Energy Use per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Total Primary Energy Use per Unit GDP
 :LINE-WIDTH 2
 
 
