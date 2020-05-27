@@ -1,17 +1,22 @@
 Variable O&M ($/MWh),preexisting retiring,preexisting nonretiring,newly built
-coal,4.41,0,6.95
-natural gas nonpeaker,3.30,0,2.32
-nuclear,2.16,0,2.16
-hydro,1.27,0,1.27
+coal,4.84,0,3.26
+natural gas nonpeaker,3.69,0,3.69
+nuclear,0.84,0,0.84
+hydro,0.00,0,0.00
 onshore wind,0,0,0
 solar PV,0,0,0
 solar thermal,0,0,0
-biomass,4.40,0,4.40
-geothermal,1,0,1
-petroleum,3.30,0,4.10
-natural gas peaker,3.30,0,4.10
-lignite,7.47,0,11.78
+biomass,6.63,0,6.63
+geothermal,0,0,0
+petroleum,3.24,0,9.88
+natural gas peaker,3.69,0,3.69
+lignite,6.63,0,6.63
 offshore wind,0,0,0
-crude oil,3.30,0,4.10
-heavy or residual fuel oil,3.30,0,4.10
-municipal solid waste,5.64,0,5.64
+crude oil,3.24,0,9.88
+heavy or residual fuel oil,3.24,0,9.88
+municipal solid waste,0.00,0,0.00
+,,,
+,,,
+,,,
+,,,
+,,,

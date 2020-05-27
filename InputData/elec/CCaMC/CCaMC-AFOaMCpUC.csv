@@ -1,17 +1,17 @@
 Fixed O&M ($/MW),preexisting retiring,preexisting nonretiring,newly built
-hard coal,30724,0,53313
-natural gas nonpeaker,10359,0,12837
-nuclear,110749,0,110749
-hydro,38062,0,38062
-onshore wind,23973,0,23973
-solar PV,13888,0,13888
-solar thermal,77743,0,77743
-biomass,114461,0,114461
-geothermal,103581,0,103581
-petroleum,15072,0,6373
-natural gas peaker,16485,0,6373
-lignite,30724,0,53313
-offshore wind,100152,0,100152
-crude oil,15072,0,6373
-heavy or residual fuel oil,15072,0,6373
-municipal solid waste,18304,0,18304
+hard coal,41064,0,27376
+natural gas nonpeaker,21058,0,15794
+nuclear,143196,0,143196
+hydro,57910,0,37905
+onshore wind,44222,0,12108
+solar PV,38431,0,12108
+solar thermal,65290,0,65290
+biomass,52646,0,52646
+geothermal,109597,0,109597
+petroleum,14771,0,6281
+natural gas peaker,13688,0,11582
+lignite,52646,0,52646
+offshore wind,63175,0,37905
+crude oil,14771,0,6281
+heavy or residual fuel oil,14771,0,6281
+municipal solid waste,222165,0,195842
