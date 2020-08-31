@@ -1,0 +1,9 @@
+Unit: dimensionless (% of output purchased),government,nonenergy industries (MUST contain remainder),labor and consumers,foreign entities,electricity suppliers (NOT USED),coal suppliers (NOT USED),natural gas and petroleum suppliers (NOT USED),biomass and biofuel suppliers (NOT USED),other energy suppliers (NOT USED)
+cement and other carbonates,0.001819108,0.882584535,0.040396735,0.075199622,0,0,0,0,0
+natural gas and petroleum systems,0.005158173,0.744797996,0.151281019,0.098762812,0,0,0,0,0
+iron and steel,0.003153963,0.610349164,0.020668349,0.365828524,0,0,0,0,0
+chemicals,0.045918032,0.633653549,0.262192099,0.058236319,0,0,0,0,0
+coal mining,0.000686835,0.753957702,0.003528693,0.241826771,0,0,0,0,0
+waste management,0.006255605,0.693131193,0.300269017,0.000344186,0,0,0,0,0
+agriculture,0.013849945,0.506945524,0.244164451,0.23504008,0,0,0,0,0
+other industries,0.005685613,0.569762124,0.288104619,0.136447643,0,0,0,0,0
