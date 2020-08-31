@@ -30,6 +30,9 @@
 :VAR Output Total CO2e Emissions by Sector[LULUCF sector]|Land Use
 :LINE-WIDTH 2
 :LINE-COLOR 0-176-80
+:VAR Output Total CO2e Emissions by Sector[geoengineering sector]|Geoengineering
+:LINE-WIDTH 2
+:LINE-COLOR 173-102-0
 :VAR Output Industry Sector Excluding Ag and Waste CO2e Emissions|Industry
 :LINE-WIDTH 2
 :LINE-COLOR 150-150-150
@@ -60,6 +63,9 @@
 :VAR Output Total CO2e Emissions by Sector[LULUCF sector]|Land Use
 :LINE-WIDTH 2
 :LINE-COLOR 0-176-80
+:VAR Output Total CO2e Emissions by Sector[geoengineering sector]|Geoengineering
+:LINE-WIDTH 2
+:LINE-COLOR 173-102-0
 :VAR Output Energy Related CO2e Emissions|Energy
 :LINE-WIDTH 2
 :LINE-COLOR 192-27-0
@@ -145,6 +151,14 @@
 :NO-LEGEND 5
 :SCALE
 :VAR Output Total CO2e Emissions by Sector[district heat and hydrogen sector]
+:LINE-WIDTH 2
+
+
+:GRAPH Output_CO2e_per_Unit_GDP
+:TITLE CO2e per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Total CO2e Emissions per Unit GDP
 :LINE-WIDTH 2
 
 
@@ -306,6 +320,14 @@
 :LINE-COLOR 0-0-0
 :VAR Output Energy Related CO2 Emissions from Biomass Biofuels and MSW|Biomass Biofuels & MSW (net)
 :LINE-COLOR 0-176-80
+
+
+:GRAPH Output_Energy_Related_CO2_per_Unit_GDP
+:TITLE Energy-Related CO2 per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Energy Related CO2 per Unit GDP
+:LINE-WIDTH 2
 
 
 ##### Effects by Policy: CO2e Wedge Diagram #####
@@ -829,7 +851,7 @@
 :LINE-COLOR 4-255-175
 :VAR Output Waste Management Electricity Use|Water & Waste
 :LINE-COLOR 245-147-224
-:VAR Output Hydrogen Sector Electricity Use|Hydrogen Supply
+:VAR Output District Heat and Hydrogen Electricity Use|District Heat & Hydrogen
 :LINE-COLOR 98-14-122
 
 
@@ -1496,6 +1518,44 @@
 :LINE-COLOR 0-176-80
 
 
+:GRAPH Industry_Energy_Related_Emissions_by_Industry
+:TITLE Industry: Energy-Related Emissions by Industry
+:NO-LEGEND 4
+:SCALE
+:STACK-FILL
+:Y-MIN 0
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[other industries]|Other Industries
+:LINE-COLOR 0-0-0
+#:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[waste management]|Water & Waste
+#:LINE-COLOR 0-77-16
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[natural gas and petroleum systems]|Natural Gas and Petroleum Systems
+:LINE-COLOR 192-27-0
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[chemicals]|Chemicals
+:LINE-COLOR 241-187-24
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[iron and steel]|Iron and Steel
+:LINE-COLOR 8-123-241
+#:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[agriculture]|Agriculture
+#:LINE-COLOR 0-176-80
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[coal mining]|Coal Mining
+:LINE-COLOR 150-150-150
+:VAR Output Industry Sector Energy Related CO2e Emissions by Industry[cement and other carbonates]|Cement and Other Carbonates
+:LINE-COLOR 0-176-80
+
+
+:GRAPH Industry_Energy_Related_Emissions_by_Pollutant
+:TITLE Industry: Energy-Related Emissions by Pollutant
+:NO-LEGEND 4
+:SCALE
+:STACK-FILL
+:Y-MIN 0
+:VAR Output Industry Sector Energy Related CO2e Emissions by Pollutant[CO2]|CO2
+:LINE-COLOR 150-150-150
+:VAR Output Industry Sector Energy Related CO2e Emissions by Pollutant[CH4]|CH4
+:LINE-COLOR 192-27-0
+:VAR Output Industry Sector Energy Related CO2e Emissions by Pollutant[N2O]|N2O
+:LINE-COLOR 0-176-80
+
+
 ##### Buildings: Energy Use #####
 #################################
 
@@ -1696,6 +1756,14 @@
 :NO-LEGEND 5
 :SCALE
 :VAR Output Total Hydrogen Consumption
+:LINE-WIDTH 2
+
+
+:GRAPH Output_Primary_Energy_Use_per_Unit_GDP
+:TITLE Primary Energy Use per Unit GDP
+:NO-LEGEND 5
+:SCALE
+:VAR Output Total Primary Energy Use per Unit GDP
 :LINE-WIDTH 2
 
 
@@ -2048,7 +2116,7 @@
 :VAR Output Fuel Costs per Unit Energy by Sector[electricity,commercial buildings sector]|Commercial Buildings Sector
 :LINE-WIDTH 2
 :LINE-COLOR 0-65-133
-:VAR Output Fuel Costs per Unit Energy by Sector[electricity,district heat and hydrogen sector]|Hydrogen Sector
+:VAR Output Fuel Costs per Unit Energy by Sector[electricity,district heat and hydrogen sector]|District Heat & Hydrogen Sectors
 :LINE-WIDTH 2
 :LINE-COLOR 98-14-122
 

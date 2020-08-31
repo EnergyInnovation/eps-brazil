@@ -194,7 +194,14 @@ PotentialPolicies = (
 	(False,"Boolean Ban New Power Plants[lignite es]","Ban New Power Plants - Lignite",[0,1],"Ban New Power Plants"),
 	(False,"Renewable Portfolio Std Percentage","Carbon-free Electricity Standard",[0,1],"Carbon-free Electricity Standard"),
 	(False,"Percent Change in Electricity Exports","Change Electricity Exports",[-0.5,1],"Electricity Imports and Exports"),
-	(False,"Percent Change in Electricity Imports","Change Electricity Imports",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[hard coal es]","Change Electricity Imports - Hard Coal",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[natural gas nonpeaker es]","Change Electricity Imports - Natural Gas Nonpeaker",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[nuclear es]","Change Electricity Imports - Nuclear",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[hydro es]","Change Electricity Imports - Hydro",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[onshore wind es]","Change Electricity Imports - Onshore Wind",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[solar PV es]","Change Electricity Imports - Solar PV",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[biomass es]","Change Electricity Imports - Biomass",[-0.5,1],"Electricity Imports and Exports"),
+	(False,"Percent Change in Electricity Imports[petroleum es]","Change Electricity Imports - Petroleum",[-0.5,1],"Electricity Imports and Exports"),
 	(False,"Fraction of Additional Demand Response Potential Achieved","Demand Response",[0,1],"Demand Response"),
 	(False,"Annual Additional Capacity Retired due to Early Retirement Policy[hard coal es]","Early Retirement of Power Plants - Hard Coal",[0,10000],"Early Retirement of Power Plants"),
 	(False,"Annual Additional Capacity Retired due to Early Retirement Policy[nuclear es]","Early Retirement of Power Plants - Nuclear",[0,10000],"Early Retirement of Power Plants"),
@@ -295,7 +302,8 @@ PotentialPolicies = (
 	(False,"Fraction of Hydrogen Production Pathways Shifted","Shift Hydrogen Production to Electrolysis",[0,1],"Hydrogen Electrolysis"),
 
 	# Cross-Sector Policies
-	(False,"Fraction of Potential Additional CCS Achieved","Carbon Capture and Sequestration",[0,1],"Carbon Capture and Sequestration"),
+	(False,"Fraction of Potential Additional CCS Achieved[electricity sector]","Carbon Capture and Sequestration - Electricity Sector",[0,1],"Carbon Capture and Sequestration"),
+	(False,"Fraction of Potential Additional CCS Achieved[industry sector]","Carbon Capture and Sequestration - Industry Sector",[0,1],"Carbon Capture and Sequestration"),
 	(False,"Additional Carbon Tax Rate[transportation sector]","Carbon Tax - Transportation Sector",[0,300],"Carbon Tax"),
 	(False,"Additional Carbon Tax Rate[electricity sector]","Carbon Tax - Electricity Sector",[0,300],"Carbon Tax"),
 	(False,"Additional Carbon Tax Rate[residential buildings sector]","Carbon Tax - Residential Bldg Sector",[0,300],"Carbon Tax"),
@@ -467,11 +475,9 @@ f = open(OutputScript, 'w')
 f.write('SPECIAL>LOADMODEL|"' + ModelFile + '"\n')
 f.write("SIMULATE>RUNNAME|" + RunName + "\n")
 
-# The following options may be useful in certain cases, but they cause Vensim to
-# produce an output window for each simulation that acknowledges the completion of
-# the command.  These output windows accumulate over the course of many runs and
-# cause slow-downs (and potentially crashes).  Therefore, these lines are usually
-# best left commented out, unless you are doing only a few runs.
+# The following options may be useful in certain cases, but they may slow Vensim down
+# or increase the odds that Vensim crashes during execution of a batch of runs (though
+# it is hard to tell for sure).  These lines are usually best left commented out.
 # f.write("SPECIAL>NOINTERACTION\n")
 # f.write("SIMULATE>SAVELIST|" + OutputVarsFile + "\n")
 f.write("\n")
@@ -534,9 +540,9 @@ for PolicySettingCombination in PolicySettingCombinations:
 	# Due to file format changes in Vensim 8, the command needs a different file extenstion
 	# depending on whether this script is run in Vensim 7 or Vensim 8.
 	# Vensim 7:
-	f.write("FILE>DELETE|" + RunName + ".vdf")
+	# f.write("FILE>DELETE|" + RunName + ".vdf")
 	# Vensim 8:
-	# f.write("FILE>DELETE|" + RunName + ".vdfx")
+	f.write("FILE>DELETE|" + RunName + ".vdfx")
 	f.write("\n\n")
 
 # We are done writing the Vensim command script and therefore close the file.
