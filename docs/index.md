@@ -19,4 +19,4 @@ Documentation of the model is available [here](https://us.energypolicy.solutions
 
 * [Acknowledgement of Contributors to Brazil Adaptation](acknowledgement.html)
 * [Brazil EPS Version History](version-history.html)
-* [Software License Information](software-license.html)
+* [Software License and Image Credits](software-license.html)
