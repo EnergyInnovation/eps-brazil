@@ -1,17 +1,17 @@
 Heat Rate by Electricity Fuel BTU/(MW*hour),preexisting,preexisting nonretiring (not used in Brazil dataset),newly built
-hard coal,1310345,0,1448276
-natural gas nonpeaker,1206897,0,1310345
+hard coal,8980000,0,8124762
+natural gas nonpeaker,9749714,0,8980000
 nuclear,10459000,0,10450000
 hydro,0,0,0
 wind,0,0,0
 solar PV,0,0,0
 solar thermal,0,0,0
-biomass,965517,0,965517
+biomass,0,0,0
 geothermal,0,0,0
 petroleum,10834000,0,10000000
-natural gas peaker,1724138,0,1896552
-lignite,1310345,0,1448276
+natural gas peaker,0,0,0
+lignite,8980000,0,8124762
 offshore wind,0,0,0
 crude oil,10834000,0,10000000
 heavy or residual fuel oil,10834000,0,10000000
-municipal solid waste,965517,0,965517
+municipal solid waste,0,0,0
