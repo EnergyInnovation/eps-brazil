@@ -1,0 +1,11 @@
+Additional Carbon Tax Rate[transportation sector] = 100
+Additional Carbon Tax Rate[electricity sector] = 100
+Additional Carbon Tax Rate[residential buildings sector] = 100
+Additional Carbon Tax Rate[commercial buildings sector] = 100
+Additional Carbon Tax Rate[industry sector] = 100
+Additional Minimum Required EV Sales Percentage[passenger,LDVs] = 1
+Additional Minimum Required EV Sales Percentage[passenger,HDVs] = 1
+Fraction of Potential Additional CCS Achieved[electricity sector] = 0.3
+Fraction of Potential Additional CCS Achieved[industry sector] = 0.3
+Policy Implementation Schedule Selector = 3
+Toggle Whether Carbon Tax Affects Process Emissions = 1

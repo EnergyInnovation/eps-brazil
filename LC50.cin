@@ -1,0 +1,6 @@
+Additional Carbon Tax Rate[transportation sector] = 50
+Additional Carbon Tax Rate[electricity sector] = 50
+Additional Carbon Tax Rate[residential buildings sector] = 50
+Additional Carbon Tax Rate[commercial buildings sector] = 50
+Additional Carbon Tax Rate[industry sector] = 50
+Toggle Whether Carbon Tax Affects Process Emissions = 1
