@@ -1,6 +1,6 @@
-Additional Battery Storage Annual Growth Percentage = 0.15
+Additional Battery Storage Annual Growth Percentage = 0.1
 Additional Carbon Tax Rate[industry sector] = 100
-Additional LCFS Percentage = 0.15
+Additional LCFS Percentage = 0.14
 Additional Minimum Required EV Sales Percentage[passenger,LDVs] = 1
 Additional Minimum Required EV Sales Percentage[passenger,HDVs] = 0.5
 Additional Minimum Required EV Sales Percentage[passenger,motorbikes] = 0.5
@@ -53,7 +53,7 @@ Percentage Additional Improvement of Fuel Economy Std[passenger,LDVs] = 0.3
 Percentage Additional Improvement of Fuel Economy Std[passenger,HDVs] = 0.3
 Percentage Additional Improvement of Fuel Economy Std[passenger,aircraft] = 0.2
 Percentage Additional Improvement of Fuel Economy Std[passenger,rail] = 0.2
-Percentage Additional Improvement of Fuel Economy Std[passenger,motorbikes] = 0.2
+Percentage Additional Improvement of Fuel Economy Std[passenger,motorbikes] = 0.15
 Percentage Additional Improvement of Fuel Economy Std[freight,LDVs] = 0.3
 Percentage Additional Improvement of Fuel Economy Std[freight,HDVs] = 0.3
 Percentage Additional Improvement of Fuel Economy Std[freight,aircraft] = 0.2
