@@ -3,7 +3,7 @@ layout: page
 title:  "Brazil Energy Policy Simulator"
 ---
 
-The Energy Policy Simulator (EPS) is a free and open-source computer model originally created by [Energy Innovation LLC](https://energyinnovation.org/) and adapted for Brazil in partnership with [World Resources Institute Brazil](http://wri.org/).
+The Energy Policy Simulator (EPS) is a free and open-source computer model originally created by [Energy Innovation LLC](https://energyinnovation.org/) and adapted for Brazil in partnership with [World Resources Institute Brasil](http://wri.org/).
 
 ## Model Download
 
