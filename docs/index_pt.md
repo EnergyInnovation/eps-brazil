@@ -3,7 +3,7 @@ layout: page
 title:  "EPS Brasil"
 ---
 
-O Simulador de Políticas de Emissões (EPS, em sua sigla em inglês) é um modelo de computador gratuito e de código aberto originalmente criado por [Energy Innovation LLC](https://energyinnovation.org/) e adaptado para o Brasil em parceria com o [World Resources Institute Brazil](http://wri.org/).
+O Simulador de Políticas de Emissões (EPS, em sua sigla em inglês) é um modelo de computador gratuito e de código aberto originalmente criado por [Energy Innovation LLC](https://energyinnovation.org/) e adaptado para o Brasil em parceria com o [World Resources Institute Brasil](http://wri.org/).
 
 ## Download do Modelo
 
