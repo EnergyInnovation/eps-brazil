@@ -9,7 +9,7 @@ O Simulador de Políticas de Emissões (EPS, em sua sigla em inglês) é um mode
 
 EPS Brasil pode ser usado neste site através de seu navegador ou você pode baixar a versão completa para seu computador clicando no botão abaixo. Observe que você precisará seguir as etapas da [página de download do EPS](https://us.energypolicy.solutions/docs/download.html) para instalar o software necessário e fazer uso da versão completa do modelo.
 
-<p><a href="https://github.com/Energy-Innovation/eps-brazil/archive/2.1.1.zip" class="btn">Download do EPS, Versão para o Brasil</a></p>
+<p><a href="https://github.com/Energy-Innovation/eps-brazil/archive/refs/tags/2.1.1.zip" class="btn">Download do EPS, Versão para o Brasil</a></p>
 
 ## Documentação
 
