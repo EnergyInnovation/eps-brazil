@@ -13,7 +13,7 @@ The Brazil Energy Policy Simulator may be used on this website through your web 
 
 ## Documentation
 
-Documentation of the model is available [here](https://us.energypolicy.solutions/docs/index.html).  Documentation is not specific to any model version and therefore applies to both U.S. and Brazil versions of the Energy Policy Simulator.
+Documentation of the model is available [here](https://docs.energypolicy.solutions/).  Documentation is not specific to any model version and therefore applies to both U.S. and Brazil versions of the Energy Policy Simulator.
 
 ## Other Information
 
