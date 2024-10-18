@@ -4089,10 +4089,7 @@ BAU New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,Vehic
 	BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,Vehicle Technology] ~~|
 BAU New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,battery electric vehicle\
 		]=
-	GET DATA AT TIME(
-	  BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,battery electric vehicle],
-	  INITIAL TIME
-	)
+	Initial New EV Price[Vehicle Type,Cargo Type]
 	* (1 - SYBSoEVP Start Year Battery Share of Electric Vehicle Price
 	       * (1 - BAU This Year Battery Cost as Fraction of First Year Battery Cost)
 	  )
@@ -4106,6 +4103,11 @@ BAU New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,batte
 		p * [1 - (s - sf)]
 		p * [1 - s * (1 - f)]
 	|
+
+Initial New EV Price[Vehicle Type,Cargo Type]= INITIAL(
+	BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,battery electric vehicle])
+	~	$/vehicle
+	~		|
 
 BAU Minimum Required Sales Perc by Technology Type[Vehicle Type,Cargo Type,Vehicle Technology\
 		] :EXCEPT:  [Vehicle Type,Cargo Type,battery electric vehicle],[Vehicle Type,Cargo Type\
@@ -4133,12 +4135,10 @@ New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,Vehicle T
 		] :EXCEPT:  [Vehicle Type,Cargo Type
 ,battery electric vehicle]=
 	BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,Vehicle Technology] ~~|
+
 New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,battery electric vehicle\
 		]=
-	GET DATA AT TIME(
-	  BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,battery electric vehicle],
-	  INITIAL TIME
-	)
+	Initial New EV Price[Vehicle Type,Cargo Type]
 	* (1 - SYBSoEVP Start Year Battery Share of Electric Vehicle Price
 	       * (1 - This Year Battery Cost as Fraction of First Year Battery Cost)
 	  )
@@ -4152,6 +4152,11 @@ New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,battery e
 		p * [1 - (s - sf)]
 		p * [1 - s * (1 - f)]
 	|
+
+Initial New EV Price[Vehicle Type,Cargo Type]= INITIAL(
+	BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,battery electric vehicle])
+	~	$/vehicle
+	~		|
 
 Fuel Price Deregulation This Year[All Fuels]=
 	Fuel Price Deregulation[All Fuels]
@@ -4316,12 +4321,26 @@ Change in Fuel Use by Fuel and Technology due to LCFS with Elec Eff Adj[HDVs,Car
 	~	BTU
 	~		|
 
-Start Year Components Energy Use[Building Type,Building Fuel,Building Component] :EXCEPT:\
-		 [Building Type,Building Fuel,envelope]=
-	GET DATA AT TIME(BCEU BAU Components Energy Use[Building Type,Building Fuel,Building Component\
-		], INITIAL TIME - 1) ~~|
-Start Year Components Energy Use[Building Type,Building Fuel,envelope]=
-	0
+Start Year Components Energy Use[urban residential,Building Fuel,Building Component\
+		]=
+	GET DIRECT CONSTANTS(
+	   'InputData/bldgs/SYCEU/SYCEU-urban-residential.csv',
+	   ',',
+	   'B2'
+	) ~~|
+Start Year Components Energy Use[rural residential,Building Fuel,Building Component\
+		]=
+	GET DIRECT CONSTANTS(
+	   'InputData/bldgs/SYCEU/SYCEU-rural-residential.csv',
+	   ',',
+	   'B2'
+	) ~~|
+Start Year Components Energy Use[commercial,Building Fuel,Building Component]=
+	GET DIRECT CONSTANTS(
+	   'InputData/bldgs/SYCEU/SYCEU-commercial.csv',
+	   ',',
+	   'B2'
+	)
 	~	BTU
 	~		|
 
@@ -9755,7 +9774,7 @@ Change in Capital Equipment Supplier Cash Flow due to New EV Chargers=
 
 Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,ptype]\
 		=
-	13 {ptype: normal distribution, integer-only allocation} ~~|
+	3 {ptype: normal distribution, integer-only allocation} ~~|
 Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,ppriority\
 		]=
 	-NPV of Lifetime Vehicle Cost[Vehicle Type,Cargo Type,Vehicle Technology]
@@ -11947,9 +11966,7 @@ Percent Change in Fleet Avg Fuel Economy[Vehicle Type,Cargo Type,Vehicle Technol
 	~		|
 
 BAU Last Year Grid Battery Storage Capacity= DELAY FIXED (
-	BGrBSC BAU Grid Battery Storage Capacity, 1, GET DATA AT TIME(BGrBSC BAU Grid Battery Storage Capacity\
-		, INITIAL TIME - 
-1))
+	BGrBSC BAU Grid Battery Storage Capacity, 1, GBSC Start Year Grid Battery Storage Capacity)
 	~	MW
 	~		|
 
@@ -12008,7 +12025,16 @@ Grid Battery Storage Capacity=
 
 Grid Battery Storage Capacity Last Year= INTEG (
 	New Grid Battery Storage Capacity,
-		GET DATA AT TIME(BGrBSC BAU Grid Battery Storage Capacity, INITIAL TIME - 1))
+		GBSC Start Year Grid Battery Storage Capacity)
+	~	MW
+	~		|
+
+GBSC Start Year Grid Battery Storage Capacity=
+	GET DIRECT CONSTANTS(
+	   'InputData/elec/BGrBSC/SYGBSC.csv',
+	   ',',
+	   'B2'
+	)
 	~	MW
 	~		|
 
@@ -14539,7 +14565,7 @@ BAU Carbon Free Energy in Absence of LCFS by Vehicle Type[Vehicle Type,Cargo Typ
 
 BAU Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,ptype\
 		]=
-	13 ~~|
+	3 ~~|
 BAU Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,ppriority\
 		]=
 	-BAU NPV of Lifetime Vehicle Cost[Vehicle Type,Cargo Type,Vehicle Technology]
@@ -18380,11 +18406,16 @@ Last Year BAU Distributed Electricity Source Capacity[Building Type,Electricity 
 		]= DELAY FIXED (
 	BDEQ BAU Distributed Electricity Source Capacity[Building Type,Electricity Source],
 	1,
-	GET DATA AT TIME(
-	  BDEQ BAU Distributed Electricity Source Capacity[Building Type,Electricity Source]\
-		,
-	  INITIAL TIME - 1
-	))
+	SYDEC Start Year Distributed Electricity Capacity[Building Type,Electricity Source])
+	~	MW
+	~		|
+
+SYDEC Start Year Distributed Electricity Capacity[Building Type,Electricity Source]=
+	GET DIRECT CONSTANTS(
+	   'InputData/bldgs/SYDEC/SYDEC.csv',
+	   ',',
+	   'B2*'
+	)
 	~	MW
 	~		|
 
