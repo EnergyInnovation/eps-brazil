@@ -1,4 +1,11 @@
 {UTF-8}
+BAU Least Cost Dispatch Priority Profile Adjustment = 3000 ~~|
+BAU New Elec Output Priority Profile Adjustment = 3000 ~~|
+BAU Vehicle Technology Priority Profile Adjustment = 1e9 ~~|
+Least Cost Dispatch Priority Profile Adjustment = 3000 ~~|
+New Elec Output Priority Profile Adjustment = 3000 ~~|
+Vehicle Technology Priority Profile Adjustment = 1e9 ~~|
+
 BAU District Heat Electricity Demand=
 	BAU Fuel Used to Generate Heat[electricity if]
 	* MWh per BTU
@@ -4103,11 +4110,6 @@ BAU New Vehicle Price after Endogenous EV Learning[Vehicle Type,Cargo Type,batte
 		p * [1 - (s - sf)]
 		p * [1 - s * (1 - f)]
 	|
-
-Initial New EV Price[Vehicle Type,Cargo Type]= INITIAL(
-	BNVP BAU New Vehicle Price[Vehicle Type,Cargo Type,battery electric vehicle])
-	~	$/vehicle
-	~		|
 
 BAU Minimum Required Sales Perc by Technology Type[Vehicle Type,Cargo Type,Vehicle Technology\
 		] :EXCEPT:  [Vehicle Type,Cargo Type,battery electric vehicle],[Vehicle Type,Cargo Type\
@@ -9779,6 +9781,7 @@ Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,p
 		]=
 	-NPV of Lifetime Vehicle Cost[Vehicle Type,Cargo Type,Vehicle Technology]
 	* Vehicle Priority Profile Unit Correction Factor
+  + Vehicle Technology Priority Profile Adjustment
 	
 	{ppriority: the center point of the normal distribution} ~~|
 Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,pwidth\
@@ -14275,7 +14278,8 @@ BAU New Elec Output Priority Profile[Electricity Source, ptype]=
 	3 ~~|
 BAU New Elec Output Priority Profile[Electricity Source, ppriority]=
 	-BAU Cost per Unit New Elec Output[Electricity Source]
-	* Electricity Priority Profile Unit Correction Factor ~~|
+	* Electricity Priority Profile Unit Correction Factor
+  + BAU New Elec Output Priority Profile Adjustment ~~|
 BAU New Elec Output Priority Profile[Electricity Source, pwidth]=
 	MAX(
 	  BAU Normalized Std Dev of New Output Costs[Electricity Source]
@@ -14569,7 +14573,8 @@ BAU Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technolo
 BAU Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,ppriority\
 		]=
 	-BAU NPV of Lifetime Vehicle Cost[Vehicle Type,Cargo Type,Vehicle Technology]
-	* Vehicle Priority Profile Unit Correction Factor ~~|
+	* Vehicle Priority Profile Unit Correction Factor
+  + BAU Vehicle Technology Priority Profile Adjustment ~~|
 BAU Vehicle Technology Priority Profile[Vehicle Type,Cargo Type,Vehicle Technology,pwidth\
 		]=
 	MAX(
@@ -18601,6 +18606,7 @@ New Elec Output Priority Profile[Electricity Source, ptype]=
 New Elec Output Priority Profile[Electricity Source, ppriority]=
 	-Cost per Unit New Elec Output[Electricity Source]
 	* Electricity Priority Profile Unit Correction Factor
+  + New Elec Output Priority Profile Adjustment
 	
 	{ppriority: the center point of the normal distribution} ~~|
 New Elec Output Priority Profile[Electricity Source, pwidth]=
@@ -18829,7 +18835,7 @@ BAU Slope of Line Approaching Future RPS Percentages by Year[Future Year]=
 	|
 
 BAU RPS Percentage by Year[Future Year]=
-	RPSPTY BAU Renewable Portfolio Std Percentage This Year[Future Year] ~~|
+	BRPSPTY BAU Renewable Portfolio Std Percentage This Year[Future Year] ~~|
 
 BAU New Allocated Output[Electricity Source]=
 	BAU New Elec Output Allocated Under RPS[Electricity Source]
@@ -18864,14 +18870,18 @@ RPS Qualifying Percentage of Elec Demand to Seek This Year=
 	~	Dmnl
 	~		|
 
-BRPSPTY BAU Renewable Portfolio Std Percentage This Year:=
+BRPSPTY BAU Renewable Portfolio Std Percentage This Year[Future Year]=
 	GET DIRECT CONSTANTS(
 	   'InputData/elec/BRPSPTY/BRPSPTY.csv',
 	   ',',
 	   'B2'
 	)
 	~	Dmnl
-	~		|
+	~	This is not a true time-series data variable.  It uses "GET DIRECT \
+		CONSTANTS" (not "GET DIRECT DATA") to load values into the subscript \
+		"Future Year," effectively a synthetic time axis, used because electricity \
+		suppliers sometimes have foresight to future RPS values.
+	|
 
 Numerical Future Year Definitions[Future Year]=
 	2018,	{Year2018}
@@ -20313,6 +20323,7 @@ Least Cost Dispatch Priority Profile[Power Plant Type by Quality,ppriority]=
 	-Dispatch Cost per Unit Output moved to Vector for Allocation[Power Plant Type by Quality\
 		]
 	* Electricity Priority Profile Unit Correction Factor
+  + Least Cost Dispatch Priority Profile Adjustment
 	
 	{ppriority: the center point of the normal distribution} ~~|
 Least Cost Dispatch Priority Profile[Power Plant Type by Quality,pwidth]=
@@ -20340,7 +20351,8 @@ BAU Least Cost Dispatch Priority Profile[Power Plant Type by Quality,ptype]=
 BAU Least Cost Dispatch Priority Profile[Power Plant Type by Quality,ppriority]=
 	-BAU Dispatch Cost per Unit Output moved to Vector for Allocation[Power Plant Type by Quality\
 		]
-	* Electricity Priority Profile Unit Correction Factor ~~|
+	* Electricity Priority Profile Unit Correction Factor
+  + BAU Least Cost Dispatch Priority Profile Adjustment ~~|
 BAU Least Cost Dispatch Priority Profile[Power Plant Type by Quality,pwidth]=
 	MAX(
 	  Normalized Std Dev of Dispatch Costs moved to Vector for Allocation[Power Plant Type by Quality\
@@ -22735,7 +22747,7 @@ Fraction of Installation and System Integration Issues Remedied=
 	~	Dmnl [0,1]
 	~		|
 
-Recipient Vehicle Type<->
+AA Vehicle Type<->
 	Vehicle Type
 	~	
 	~		|
@@ -22966,7 +22978,7 @@ Building Component:
 	~	
 	~		|
 
-Priority Profile:
+ZZ Priority Profile:
 	ptype, ppriority, pwidth, pextra
 	~	
 	~	See the "Allocation Functions" section of the Vensim Reference Manual and \
