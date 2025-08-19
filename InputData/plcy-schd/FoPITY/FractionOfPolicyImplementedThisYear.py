@@ -30,7 +30,7 @@ RoundingDigits = 6
 PolicyElements = (
 
   (("trans fuel economy standards","passenger","LDVs"),
-    ("Schedule 1",(2020,0),(2021,0),(2050,1)),
+    ("Schedule 1",(2020,0),(2026,0),(2050,1)),
     ("Schedule 2",(2020,0),(2025,0),(2035,1),(2050,1)),
   ),
   (("trans fuel economy standards","passenger","HDVs"),
