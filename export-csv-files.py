@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-Created on Apr 09 14:16:41 2024
-Updated on Oct 11 16:58:41 2024
+Created on Apr 09 2024
+Last updated on Jan 29 2025
 
 @author: Olivia Ashmoore
 @author: Travis Franck
 """
 
 import os
+import sys
 import pandas as pd
 from enum import Enum
 import argparse
-import curses
-## Curses is installed by default on macOS/Linux. For Windows, install:
-#          python -m pip install windows-curses
-
 
 # --------------------------------------------------------
 # The string value should be the path relative to first directory
 class MenuChoices(Enum):
-    CHOICE_All = r"InputData"
+    CHOICE_CANCEL = r"Cancel"
+    CHOICE_All = r"All of InputData"
     CHOICE_ADD_OUTPUTS = r"add-outputs"
     CHOICE_BLDGS = r"bldgs"
     CHOICE_CCS = r"ccs"
@@ -38,6 +36,22 @@ class MenuChoices(Enum):
     CHOICE_PLCY = r"plcy-schd"
     CHOICE_TRANS = r"trans"
     CHOICE_WEB_APP = r"web-app"
+
+# --------------------------------------------------------
+# Handle "menu selection" when running in IDE like Spyder
+# Choose an option from MenuChoices above
+spyderMenuChoice = MenuChoices.CHOICE_DIST_HEAT
+
+
+def is_running_in_spyder():
+    return 'spyder' in sys.modules
+
+if not is_running_in_spyder():
+    # print("Not running in Spyder")
+    import curses
+    ## Curses is installed by default on macOS/Linux. For Windows, install:
+    #          python -m pip install windows-curses
+
 
 # --------------------------------------------------------
 # Function to present the user with a menu of folder options
@@ -84,10 +98,10 @@ def present_menu(stdscr):
 def set_root_path(selection):
     if selection == MenuChoices.CHOICE_All.value:
         # print(f"You selected {selection}")
-        return selection
+        return "InputData"
     else:
         # print(f"You selected {selection}")
-        return MenuChoices.CHOICE_All.value + "/" + selection
+        return os.path.join("InputData", selection)
 
 
 # --------------------------------------------------------
@@ -130,17 +144,23 @@ parser.add_argument("-m","--menu_choice", type=str, help="A menu choice allowing
 parser.add_argument("-d","--dirpath", type=str, help="Arbitrary path to directory with subfolders of Excel files")
 args = parser.parse_args()
 
-if args.dirpath:
+if is_running_in_spyder():
+    root_directory = set_root_path(spyderMenuChoice.value)
+elif args.dirpath:
     root_directory = args.dirpath
 elif args.menu_choice:
     root_directory = set_root_path(args.menu_choice)
 else:
     # Present a menu and set the path to the XLS/CSV files
     selected_choice = curses.wrapper(present_menu)
-    root_directory = set_root_path(selected_choice)
+    if selected_choice == MenuChoices.CHOICE_CANCEL.value:
+        print("Canceling CSV export")
+        sys.exit(0)
+    else:
+        root_directory = set_root_path(selected_choice)
+
+
 print("Processing files in " + root_directory)
-
-
 # Recursively search for Excel files in subdirectories
 for root, dirs, files in os.walk(root_directory):
     for file in files:
