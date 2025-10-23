@@ -239,7 +239,7 @@ Examples:
     parser.add_argument(
         '-d', '--directory',
         # default="InputData/add-outputs",
-        default="InputData/elec/BECF",
+        default="InputData",
         help='Directory to search for CSV files (default: InputData)'
     )
 
