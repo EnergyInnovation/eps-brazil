@@ -31,3 +31,4 @@ RECOVERED_*.mdl
 
 # Windows applications' hidden temporary backup files
 ~*
+csv_graphs
