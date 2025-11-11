@@ -10,6 +10,7 @@ and labels are in the first column.
 import os
 import sys
 import argparse
+import re
 import csv
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -239,14 +240,14 @@ Examples:
     parser.add_argument(
         '-d', '--directory',
         # default="InputData/add-outputs",
-        default="InputData",
+        default="InputData/",
         help='Directory to search for CSV files (default: InputData)'
     )
 
     parser.add_argument(
         '-o', '--output',
         default='./csv_graphs',
-        help='Directory to save output graphs (default: ./csv_graphs)'
+        help='Directory to save nested folder structure of output graphs (default: ./csv_graphs)'
     )
 
     parser.add_argument(
@@ -273,13 +274,27 @@ Examples:
         print(f"Error: '{args.directory}' is not a directory")
         sys.exit(1)
 
+    # Simple approach: remove any leading path segment "InputData/" (case-insensitive)
+    # from the provided directory string and use the remainder as the namespace.
+    # If nothing remains, use the output root directly; otherwise join the tail.
+    # Remove the first occurrence of 'InputData/' (case-insensitive)
+    tail = re.sub(r'(?i)inputdata[\/]+', '', args.directory, count=1)
+    tail = tail.strip('/')
+
+    if tail:
+        # Use the tail as the namespace under the output dir
+        run_output = os.path.join(args.output, os.path.normpath(tail))
+    else:
+        # If nothing remains (e.g. directory was exactly 'InputData'), use output root
+        run_output = args.output
+
     # Create output directory if it doesn't exist
-    os.makedirs(args.output, exist_ok=True)
+    os.makedirs(run_output, exist_ok=True)
 
     # Process files
     traverse_and_process(
         args.directory,
-        args.output,
+        run_output,
         args.format,
         recursive=not args.no_recursive
     )
