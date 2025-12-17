@@ -1,6 +1,6 @@
 Unit: dimensionless (peak time capacity factors),summer,winter
 hard coal,1.0,1.0
-natural gas nonpeaker,0.25,0.25
+natural gas nonpeaker,0.65,0.65
 nuclear,1.0,1.0
 hydro,1.0,1.0
 onshore wind,0.1651511262,0.1651511262
