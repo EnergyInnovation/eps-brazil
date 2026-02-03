@@ -1,7 +1,7 @@
-Fraction Owned by Entity (dimensionless),government,nonenergy industries,labor and consumers,foreign entities,electricity suppliers,coal suppliers,natural gas and petroleum suppliers,biomass and biofuel suppliers,other energy suppliers
-LDVs,0.00,0.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00
-HDVs,0.60,0.40,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-aircraft,0.00,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-rail,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-ships,1.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00
-motorbikes,0.01,0.01,0.98,0.00,0.00,0.00,0.00,0.00,0.00
+Fraction Owned by Entity (dimensionless),government,domestic industries,labor and consumers,foreign entities
+LDVs,0.0025607177,0.0009964017,0.9964428805,0
+HDVs,0.1403048356,0.8596951644,0.0,0
+aircraft,0.0,1.0,0.0,0
+rail,1.0,0.0,0.0,0
+ships,0.0,0.0,1.0,0
+motorbikes,0.0015636391,0.0,0.9984363609,0

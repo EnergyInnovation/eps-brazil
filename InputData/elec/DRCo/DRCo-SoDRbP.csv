@@ -1,10 +1,5 @@
-% of DR (dimensionless),share
-government,0
-nonenergy industries,0.724
-labor and consumers,0.276
-foreign entities,0
-electricity suppliers,0
-coal suppliers,0
-natural gas and petroleum suppliers,0
-biomass and biofuel suppliers,0
-other energy suppliers,0
+Unit: % of DR (dimensionless),share
+government,0.0
+domestic industries,0.7236187085
+labor and consumers,0.2763942385
+foreign entities,0.0

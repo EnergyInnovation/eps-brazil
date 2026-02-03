@@ -1,0 +1,26 @@
+Unit: dimensionless,Perc Low Temp,Perc Medium and High Temp
+agriculture and forestry 01T03,1.0,0.0
+coal mining 05,0.7540983607,0.2459016393
+oil and gas extraction 06,0.7540983607,0.2459016393
+other mining and quarrying 07T08,0.7540983607,0.2459016393
+food beverage and tobacco 10T12,0.8122743682,0.1877256318
+textiles apparel and leather 13T15,0.7540983607,0.2459016393
+wood products 16,0.7540983607,0.2459016393
+pulp paper and printing 17T18,0.9353448276,0.0646551724
+refined petroleum and coke 19,0.3129346314,0.6870653686
+chemicals 20,0.3129346314,0.6870653686
+rubber and plastic products 22,0.7540983607,0.2459016393
+glass and glass products 231,0.7540983607,0.2459016393
+cement and other nonmetallic minerals 239,0.1205787781,0.8794212219
+iron and steel 241,0.0300902708,0.9699097292
+other metals 242,0.2346938776,0.7653061224
+metal products except machinery and vehicles 25,0.7540983607,0.2459016393
+computers and electronics 26,0.7540983607,0.2459016393
+appliances and electrical equipment 27,0.7540983607,0.2459016393
+other machinery 28,0.8333333333,0.1666666667
+road vehicles 29,0.8333333333,0.1666666667
+nonroad vehicles 30,0.8333333333,0.1666666667
+other manufacturing 31T33,0.7540983607,0.2459016393
+energy pipelines and gas processing 352T353,1.0,0.0
+water and waste 36T39,1.0,0.0
+construction 41T43,1.0,0.0
