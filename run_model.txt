@@ -1,0 +1,25 @@
+! Call this script using the full path to Vensim, e.g.,
+! /Applications/VensimDSSMC.app/Contents/MacOS/VensimDSSMC run_model.cmd
+!
+
+! Run script without user interaction and errors go to vensim.err file
+SPECIAL>NOINTERACTION|1
+
+{ Load the model }
+SPECIAL>LOADMODEL|"EPS.mdl"
+
+SIMULATE>RUNNAME|ScriptRunData
+SIMULATE>SAVELIST|OutputVarsToExport.lst
+MENU>RUN|O
+
+{Export the data for further processing}
+MENU>VDF2TAB|ScriptRunData.vdfx|ScriptRunData1.tsv|OutputVarsToExport.lst|{!~||2010|2050|:ScriptRunDataTag
+! MENU>VDF2CSV|ScriptRunData.vdfx|ScriptRunData.csv||{!~||2010|2050|
+
+{Other Tests for Exporting}
+! MENU>VDF2TAB|ScriptRunData.vdfx|ScriptRunData2.tsv||!||2010|2050|
+! MENU>VDF2TAB|ScriptRunData.vdfx|ScriptRunData3.tsv|
+
+
+{Quit Vensim}
+MENU>EXIT
